@@ -907,7 +907,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           id: `msg_ai_fb_${Date.now()}`,
           userId: currentUser.id,
           sender: "ai",
-          text: `Hi ${currentUser.name.split(" ")[0]}. What is going on today? (Sample coach reply)`,
+          text: `Hi ${currentUser.name.split(" ")[0]}. What is going on today?`,
           timestamp: new Date().toISOString(),
         };
         setState((prev) => ({
