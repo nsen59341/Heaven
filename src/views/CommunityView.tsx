@@ -373,7 +373,7 @@ export const CommunityView: React.FC = () => {
                     </div>
 
                     <span className="text-[11px] text-[var(--subtle)] hidden sm:inline">
-                      HEAVEN Reflection
+                      Saathi Reflection
                     </span>
                   </div>
 
@@ -415,7 +415,7 @@ export const CommunityView: React.FC = () => {
                                         <span className="text-xs font-semibold text-stone-900 dark:text-stone-100">
                                           {comment.userName}
                                         </span>
-                                        {comment.userId === "user_coach_pooja" && (
+                                        {(comment.userId === "user_coach_pooja" || comment.userId === "user_coach_asha" || comment.userName.includes("Asha")) && (
                                           <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-accent/15 text-accent font-semibold">
                                             Coach
                                           </span>
@@ -487,7 +487,7 @@ export const CommunityView: React.FC = () => {
                                                 <span className="text-xs font-medium text-stone-900 dark:text-stone-100">
                                                   {reply.userName}
                                                 </span>
-                                                {reply.userId === "user_coach_pooja" && (
+                                                {(reply.userId === "user_coach_pooja" || reply.userId === "user_coach_asha" || reply.userName.includes("Asha")) && (
                                                   <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-accent/15 text-accent font-semibold">
                                                     Coach
                                                   </span>

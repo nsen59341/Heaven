@@ -104,7 +104,7 @@ router.post("/safety/screen", (req, res) => {
   }
 });
 
-// 3. Ask Pooja (Chat) endpoint
+// 3. Ask Asha (Chat) endpoint
 router.post("/gemini/ask", async (req, res) => {
   try {
     const { message, history, memberName, recentCheckIns, previousOpenings } = req.body || {};
@@ -118,7 +118,7 @@ router.post("/gemini/ask", async (req, res) => {
 
     const ai = getGeminiClient();
 
-    const systemInstruction = `You are speaking as a life coach to a member of her community, in a chat. Warm, direct, and human. You talk the way a person texts, not the way a wellness app writes.
+    const systemInstruction = `You are speaking as a life coach named Asha to a member of her community, in a chat. Warm, direct, and human. You talk the way a person texts, not the way a wellness app writes.
 
 Match the length of your reply to the length of what they said:
 - A greeting, or a few words with nothing in them, gets one short line back and a question. Under 15 words. Example: "Hi [first name]. What is going on today?"
@@ -228,7 +228,7 @@ router.post("/gemini/meditation", async (req, res) => {
 
     const ai = getGeminiClient();
 
-    const systemInstruction = `You write short, gentle 3-minute spoken meditations for a life coach named Pooja.
+    const systemInstruction = `You write short, gentle 3-minute spoken meditations for a life coach named Asha.
 Write a personalized meditation script tailored strictly to the user's specific situation.
 The script must consist of 6-9 spoken lines/sentences.
 Each line must end with a realistic pause duration tag like "[pause 4s]" or "[pause 6s]".
@@ -309,13 +309,13 @@ router.post("/gemini/weekly-letter", async (req, res) => {
 
     const ai = getGeminiClient();
 
-    const systemInstruction = `You are life coach Pooja writing a warm, deeply personal weekly letter to a member of your community (${memberName}).
+    const systemInstruction = `You are life coach Asha writing a warm, deeply personal weekly letter to a member of your community (${memberName}).
 Requirements:
 1. Length: Roughly 200 words.
 2. You MUST quote at least two exact phrases the member wrote in their check-ins (use quotation marks).
 3. Name one specific, tangible thing that changed between their earliest entry and their latest entry in this set.
 4. Tone: Warm, insightful, observational, human, encouraging without false hype.
-5. Format: Dear [Name], 2-3 short heartfelt paragraphs, followed by "Warmly, Pooja".`;
+5. Format: Dear [Name], 2-3 short heartfelt paragraphs, followed by "Warmly, Asha".`;
 
     let letter = "";
     let isFallback = true;
@@ -341,7 +341,7 @@ Requirements:
       const sampleQuote1 = latest?.discovery || "taking things one step at a time";
       const sampleQuote2 = earliest?.discovery || "learning to notice";
 
-      letter = `Dear ${memberName || "friend"},\n\nLooking back at your reflections over the past week, there is a distinct rhythm taking shape. Early in the week you noted "${sampleQuote2}", navigating the tension between what needed doing and what you were holding.\n\nBy your latest check-in, you captured something clarifying: "${sampleQuote1}". That subtle shift from reacting to observing is where real steadiness begins to take root.\n\nKeep honoring these 60-second moments.\n\nWarmly, Pooja`;
+      letter = `Dear ${memberName || "friend"},\n\nLooking back at your reflections over the past week, there is a distinct rhythm taking shape. Early in the week you noted "${sampleQuote2}", navigating the tension between what needed doing and what you were holding.\n\nBy your latest check-in, you captured something clarifying: "${sampleQuote1}". That subtle shift from reacting to observing is where real steadiness begins to take root.\n\nKeep honoring these 60-second moments.\n\nWarmly, Asha`;
     }
 
     res.json({ letter, isFallback });
@@ -349,7 +349,7 @@ Requirements:
     console.error("Weekly letter error:", error);
     const member = req.body?.memberName || "friend";
     res.json({
-      letter: `Dear ${member},\n\nThank you for consistently showing up for your daily reflections this week. Honoring these small pauses makes all the difference.\n\nWarmly, Pooja`,
+      letter: `Dear ${member},\n\nThank you for consistently showing up for your daily reflections this week. Honoring these small pauses makes all the difference.\n\nWarmly, Asha`,
       isFallback: true,
     });
   }
@@ -362,7 +362,7 @@ router.post("/gemini/generate-challenge", async (req, res) => {
     const count = parseInt(daysCount) || 7;
     const ai = getGeminiClient();
 
-    const systemInstruction = `You are helping life coach Pooja design a structured ${count}-day mindfulness/coaching challenge for her community members.
+    const systemInstruction = `You are helping life coach Asha design a structured ${count}-day mindfulness/coaching challenge for her community members.
 For each day:
 - title: concise and evocative (3-6 words)
 - oneMinuteAction: an actionable micro-step that can genuinely be completed in 60 seconds (no complicated equipment or long tasks)
@@ -455,7 +455,7 @@ router.post("/gemini/nudge-message", async (req, res) => {
     const { memberName, daysMissed, dayToResume } = req.body || {};
     const ai = getGeminiClient();
 
-    const systemInstruction = `You are life coach Pooja writing a gentle re-entry nudge to a community member who missed ${daysMissed || 2} days.
+    const systemInstruction = `You are life coach Asha writing a gentle re-entry nudge to a community member who missed ${daysMissed || 2} days.
 Rule: NEVER phrase it as punishment or loss ("you lost your streak", "you failed").
 Phrase it warmly as an invitation: "Day ${dayToResume || 5} is where most people stop; here is the one-minute version to get back in."
 Keep it to 2-3 short, reassuring sentences. Maximum 45 words.`;

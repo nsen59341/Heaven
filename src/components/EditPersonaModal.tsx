@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Camera, X, Check, Upload, User as UserIcon, Sparkles, MapPin, Briefcase, Phone, Mail, Image as ImageIcon } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import { User } from "../types";
-import poojaAvatar from "../assets/images/pooja_avatar.jpg";
+import ashaAvatar from "../assets/images/asha_avatar.jpg";
 
 interface EditPersonaModalProps {
   isOpen: boolean;
@@ -25,7 +25,7 @@ export const EditPersonaModal: React.FC<EditPersonaModalProps> = ({
   const [specialty, setSpecialty] = useState(targetUser.specialty || "Somatic Grounding & Stress Resilience");
   const [location, setLocation] = useState(targetUser.location || "Bangalore, India");
   const [phone, setPhone] = useState(targetUser.phone || "+91 98450 12345");
-  const [photo, setPhoto] = useState(targetUser.photo || (isCoach ? poojaAvatar : ""));
+  const [photo, setPhoto] = useState(targetUser.photo || (isCoach ? ashaAvatar : ""));
   const [savedSuccess, setSavedSuccess] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -38,7 +38,7 @@ export const EditPersonaModal: React.FC<EditPersonaModalProps> = ({
       setSpecialty(targetUser.specialty || (isCoach ? "Somatic Grounding & Stress Resilience" : ""));
       setLocation(targetUser.location || "Bangalore, India");
       setPhone(targetUser.phone || "+91 98450 12345");
-      setPhoto(targetUser.photo || (isCoach ? poojaAvatar : ""));
+      setPhoto(targetUser.photo || (isCoach ? ashaAvatar : ""));
       setSavedSuccess(false);
     }
   }, [isOpen, targetUser, isCoach]);
@@ -58,8 +58,8 @@ export const EditPersonaModal: React.FC<EditPersonaModalProps> = ({
     }
   };
 
-  const handleResetToDefaultPooja = () => {
-    setPhoto(poojaAvatar);
+  const handleResetToDefaultAsha = () => {
+    setPhoto(ashaAvatar);
   };
 
   const handleSave = (e: React.FormEvent) => {
@@ -101,8 +101,8 @@ export const EditPersonaModal: React.FC<EditPersonaModalProps> = ({
                 </h3>
                 <p className="text-xs text-stone-600 dark:text-stone-400 font-medium">
                   {isCoach
-                    ? "Update Coach Pooja's portrait, bio, specialty, and contact details"
-                    : `Update your name, bio, and profile picture on HEAVEN`}
+                    ? "Update Coach Asha's portrait, bio, specialty, and contact details"
+                    : `Update your name, bio, and profile picture on Saathi`}
                 </p>
               </div>
             </div>
@@ -157,11 +157,11 @@ export const EditPersonaModal: React.FC<EditPersonaModalProps> = ({
                     {isCoach && (
                       <button
                         type="button"
-                        onClick={handleResetToDefaultPooja}
+                        onClick={handleResetToDefaultAsha}
                         className="px-3.5 py-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-800 dark:text-stone-200 text-xs font-semibold hover:bg-stone-100 dark:hover:bg-stone-700 transition-colors cursor-pointer"
-                        id="reset-pooja-avatar-btn"
+                        id="reset-asha-avatar-btn"
                       >
-                        Reset to Pooja Portrait
+                        Reset to Asha Portrait
                       </button>
                     )}
                   </div>
@@ -185,7 +185,7 @@ export const EditPersonaModal: React.FC<EditPersonaModalProps> = ({
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  placeholder="e.g. Pooja V. or Ananya Sharma"
+                  placeholder="e.g. Asha V. or Ananya Sharma"
                   className="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-emerald-600 text-sm font-medium text-stone-900 dark:text-stone-100 placeholder:text-stone-400 dark:placeholder:text-stone-500 shadow-2xs"
                   id="edit-persona-name-input"
                 />
@@ -224,7 +224,7 @@ export const EditPersonaModal: React.FC<EditPersonaModalProps> = ({
                   placeholder={
                     isCoach
                       ? "Share your coaching philosophy, background, and approach..."
-                      : "Share what brings you to HEAVEN and your personal grounding practice..."
+                      : "Share what brings you to Saathi and your personal grounding practice..."
                   }
                   id="edit-persona-bio-input"
                 />

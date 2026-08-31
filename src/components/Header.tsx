@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenReset, onOpenTheme }) => {
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
           <span className="md:hidden text-xs font-serif font-bold text-[var(--accent)] tracking-wider uppercase">
-            HEAVEN ·
+            Saathi ·
           </span>
           <h1 className="text-xl sm:text-2xl font-serif text-[var(--text)] tracking-tight truncate">
             {timeGreeting}, {firstName}

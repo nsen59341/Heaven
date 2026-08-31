@@ -1,5 +1,5 @@
 {
-  "name": "HEAVEN",
+  "name": "Saathi",
   "description": "Daily check-in and community app for life coach members with 60-second resets, AI reflections, and streak tracking.",
   "requestFramePermissions": ["microphone"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

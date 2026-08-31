@@ -73,7 +73,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               }`}
               role={isCoachSession ? "button" : undefined}
               tabIndex={isCoachSession ? 0 : undefined}
-              title={isCoachSession ? "Coach Review: Switch participant account" : "Your HEAVEN profile"}
+              title={isCoachSession ? "Coach Review: Switch participant account" : "Your Saathi profile"}
             >
               {currentUser.photo ? (
                 <img
@@ -91,10 +91,10 @@ export const Navigation: React.FC<NavigationProps> = ({
               )}
               <div>
                 <h2 className="font-bold text-sm text-[var(--text)] uppercase tracking-wider font-serif">
-                  HEAVEN
+                  Saathi
                 </h2>
                 <p className="text-[var(--subtle)] text-xs truncate max-w-[130px]">
-                  {currentUser.role === "coach" ? "Coach Pooja" : currentUser.name}
+                  {currentUser.role === "coach" ? "Coach Asha" : currentUser.name}
                 </p>
               </div>
             </div>

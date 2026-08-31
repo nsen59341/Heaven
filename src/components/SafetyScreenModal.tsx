@@ -84,18 +84,18 @@ export const SafetyScreenModal: React.FC<SafetyScreenModalProps> = ({
               </div>
             </div>
 
-            {/* Message Coach Pooja */}
+            {/* Message Coach Asha */}
             <div className="p-4 rounded-xl bg-[var(--subtle-surface)] border border-[var(--border)]">
               <div className="flex items-start gap-3">
-                <div className="p-2.5 rounded-full bg-[var(--highlight-light)] text-[var(--highlight)] shrink-0">
+                 <div className="p-2.5 rounded-full bg-[var(--highlight-light)] text-[var(--highlight)] shrink-0">
                   <MessageCircle className="w-5 h-5" />
                 </div>
                 <div className="flex-1">
                   <div className="font-medium text-[var(--text)] text-base">
-                    Message Pooja Directly
+                    Message Asha Directly
                   </div>
                   <div className="text-sm text-[var(--muted)] mt-0.5">
-                    Your note has been routed to Pooja&apos;s private queue.
+                    Your note has been routed to Asha&apos;s private queue.
                   </div>
                   <button
                     onClick={() => {
@@ -116,7 +116,7 @@ export const SafetyScreenModal: React.FC<SafetyScreenModalProps> = ({
               onClick={() => onClose()}
               className="text-sm text-[var(--subtle)] hover:text-[var(--text)] underline"
             >
-              Return to HEAVEN
+              Return to Saathi
             </button>
           </div>
         </div>

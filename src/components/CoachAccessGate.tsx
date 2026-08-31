@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { KeyRound, ShieldCheck, Sparkles, CheckCircle2, AlertCircle, ArrowRight, UserCheck, Heart } from "lucide-react";
 import { useApp } from "../context/AppContext";
-import poojaAvatar from "../assets/images/pooja_avatar.jpg";
+import ashaAvatar from "../assets/images/asha_avatar.jpg";
 
 export const CoachAccessGate: React.FC = () => {
   const { unlockAccessGate, setCurrentUser, state } = useApp();
@@ -12,7 +12,7 @@ export const CoachAccessGate: React.FC = () => {
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const activeCode = state.coachInvite?.code || "HEAVEN-POOJA-2026";
+  const activeCode = state.coachInvite?.code || "SAATHI-ASHA-2026";
 
   const handleMemberJoinSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,12 +48,12 @@ export const CoachAccessGate: React.FC = () => {
         className="w-full max-w-lg bg-white dark:bg-[#1C1815] text-stone-900 dark:text-stone-100 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-2xl overflow-hidden my-8"
         id="coach-access-gate-card"
       >
-        {/* Top Banner with Coach Pooja info */}
+        {/* Top Banner with Coach Asha info */}
         <div className="p-6 sm:p-8 bg-gradient-to-b from-stone-50 to-white dark:from-stone-900/90 dark:to-[#1C1815] border-b border-stone-200 dark:border-stone-800 text-center relative">
           <div className="mx-auto w-20 h-20 rounded-full p-1 bg-gradient-to-tr from-emerald-600 to-amber-500 shadow-lg mb-4 relative">
             <img
-              src={poojaAvatar}
-              alt="Coach Pooja"
+              src={ashaAvatar}
+              alt="Coach Asha"
               className="w-full h-full rounded-full object-cover"
               referrerPolicy="no-referrer"
             />
@@ -68,10 +68,10 @@ export const CoachAccessGate: React.FC = () => {
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-stone-900 dark:text-stone-100 tracking-tight">
-            Coach Pooja&apos;s Circle
+            Coach Asha&apos;s Circle
           </h2>
           <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-400 mt-1 max-w-sm mx-auto font-normal">
-            HEAVEN is an exclusive daily space for 60-second micro-pauses, reflective check-ins, and personal coach guidance.
+            Saathi is an exclusive daily space for 60-second micro-pauses, reflective check-ins, and personal coach guidance.
           </p>
         </div>
 
@@ -143,7 +143,7 @@ export const CoachAccessGate: React.FC = () => {
                   id="gate-join-link-btn"
                 >
                   <Sparkles className="w-4 h-4 text-emerald-200" />
-                  <span>Join Coach Pooja&apos;s Circle</span>
+                  <span>Join Coach Asha&apos;s Circle</span>
                   <ArrowRight className="w-4 h-4 text-white" />
                 </button>
 
@@ -160,7 +160,7 @@ export const CoachAccessGate: React.FC = () => {
                   id="gate-coach-signin-btn"
                 >
                   <UserCheck className="w-4 h-4 text-amber-600" />
-                  <span>Enter as Coach Pooja</span>
+                  <span>Enter as Coach Asha</span>
                 </button>
               </div>
             )}
@@ -170,7 +170,7 @@ export const CoachAccessGate: React.FC = () => {
         {/* Footer Note */}
         <div className="p-4 bg-stone-50 dark:bg-stone-900/60 border-t border-stone-200 dark:border-stone-800 text-center">
           <p className="text-[11px] text-stone-500 dark:text-stone-400">
-            Protected cohort · Access granted via Coach Pooja&apos;s direct shareable referral link.
+            Protected cohort · Access granted via Coach Asha&apos;s direct shareable referral link.
           </p>
         </div>
       </motion.div>

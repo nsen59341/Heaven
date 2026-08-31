@@ -1,6 +1,6 @@
 import { AppState, Challenge, CheckIn, CoachInvite, Post, PostComment, Question, ResetLog, User } from "../types";
 import { getLocalDateString } from "../utils/helpers";
-import poojaAvatar from "../assets/images/pooja_avatar.jpg";
+import ashaAvatar from "../assets/images/asha_avatar.jpg";
 
 // Helper to subtract local days from today
 export function getRelativeLocalDateStr(offsetDays: number): string {
@@ -76,9 +76,9 @@ export const SEED_CHALLENGE: Challenge = {
 
 export const COACH_USER: User = {
   id: "user_coach_pooja",
-  name: "Pooja V.",
-  email: "pooja@heavencommunity.in",
-  photo: poojaAvatar,
+  name: "Asha V.",
+  email: "asha@saathicommunity.in",
+  photo: ashaAvatar,
   role: "coach",
   joinedAt: getRelativeLocalDateStr(120),
   totalPoints: 1250,
@@ -761,8 +761,8 @@ export const SEED_POSTS: Post[] = [
   {
     id: "post_9",
     userId: "user_coach_pooja",
-    userName: "Pooja V.",
-    userPhoto: poojaAvatar,
+    userName: "Asha V.",
+    userPhoto: ashaAvatar,
     text: "A gentle reminder for everyone midway through their week: you don't need a 45-minute meditation to reset your nervous system. One full, unhurried exhale in the hallway is enough to bring you back.",
     createdAt: new Date(Date.now() - 90 * 3600 * 1000).toISOString(),
     reactions: ["user_ananya_s", "user_rohit_m", "user_divya_r", "user_meera_k", "user_arjun_n"],
@@ -816,8 +816,8 @@ export const SEED_COMMENTS: PostComment[] = [
     id: "comment_1_2",
     postId: "post_1",
     userId: "user_coach_pooja",
-    userName: "Pooja V.",
-    userPhoto: poojaAvatar,
+    userName: "Asha V.",
+    userPhoto: ashaAvatar,
     text: "21 unbroken days of arriving back in your own body, Ananya. So proud of your quiet consistency.",
     createdAt: new Date(Date.now() - 2 * 3600 * 1000).toISOString(),
     reactions: ["user_ananya_s", "user_meera_k", "user_rohit_m"],
@@ -828,7 +828,7 @@ export const SEED_COMMENTS: PostComment[] = [
     userId: "user_ananya_s",
     userName: "Ananya S.",
     userPhoto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-    text: "Thank you Coach Pooja! Having this circle makes all the difference.",
+    text: "Thank you Coach Asha! Having this circle makes all the difference.",
     createdAt: new Date(Date.now() - 1.5 * 3600 * 1000).toISOString(),
     reactions: ["user_coach_pooja"],
     parentId: "comment_1_2", // Threaded reply
@@ -847,8 +847,8 @@ export const SEED_COMMENTS: PostComment[] = [
     id: "comment_3_1",
     postId: "post_3",
     userId: "user_coach_pooja",
-    userName: "Pooja V.",
-    userPhoto: poojaAvatar,
+    userName: "Asha V.",
+    userPhoto: ashaAvatar,
     text: "Sending an invoice with zero anxiety is a major nervous system win! 🌿",
     createdAt: new Date(Date.now() - 16 * 3600 * 1000).toISOString(),
     reactions: ["user_divya_r"],
@@ -867,8 +867,8 @@ export const SEED_COMMENTS: PostComment[] = [
     id: "comment_9_2",
     postId: "post_9",
     userId: "user_coach_pooja",
-    userName: "Pooja V.",
-    userPhoto: poojaAvatar,
+    userName: "Asha V.",
+    userPhoto: ashaAvatar,
     text: "Even a single conscious exhale counts Meera. It restarts the baseline.",
     createdAt: new Date(Date.now() - 82 * 3600 * 1000).toISOString(),
     reactions: ["user_meera_k"],
@@ -877,10 +877,10 @@ export const SEED_COMMENTS: PostComment[] = [
 ];
 
 export const SEED_COACH_INVITE: CoachInvite = {
-  code: "HEAVEN-POOJA-2026",
+  code: "SAATHI-ASHA-2026",
   coachId: "user_coach_pooja",
   createdAt: getRelativeLocalDateStr(30),
-  description: "Official Coach Pooja V. Private Practice Circle on HEAVEN",
+  description: "Official Coach Asha V. Private Practice Circle on Saathi",
   active: true,
   redeemedCount: 14,
 };
@@ -982,7 +982,7 @@ export const SEED_RESET_LOGS: ResetLog[] = [
 export function createInitialAppState(): AppState {
   return {
     users: [COACH_USER, ...SEED_MEMBERS],
-    currentUserId: "user_coach_pooja", // Default signed-in as Coach Pooja
+    currentUserId: "user_coach_pooja", // Default signed-in as Coach Asha
     challenges: [SEED_CHALLENGE],
     activeChallengeId: SEED_CHALLENGE.id,
     checkIns: generateSeedCheckIns(),
@@ -992,7 +992,7 @@ export function createInitialAppState(): AppState {
         id: "msg_init_1",
         userId: "user_ananya_s",
         sender: "user",
-        text: "Hi Pooja, I'm finding it hard to separate urgency from real importance at work.",
+        text: "Hi Asha, I'm finding it hard to separate urgency from real importance at work.",
         timestamp: new Date(Date.now() - 2 * 24 * 3600 * 1000).toISOString(),
       },
       {
@@ -1027,6 +1027,6 @@ export function createInitialAppState(): AppState {
     ],
     nudgesShown: {},
     gateAccessUnlocked: true,
-    gateAccessCode: "HEAVEN-POOJA-2026",
+    gateAccessCode: "SAATHI-ASHA-2026",
   };
 }

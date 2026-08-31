@@ -26,7 +26,7 @@ import {
   isCrisisText,
 } from "../utils/helpers";
 
-const STORAGE_KEY = "heaven_app_state_v1";
+const STORAGE_KEY = "saathi_app_state_v1";
 
 interface AppContextType {
   state: AppState;
@@ -108,7 +108,7 @@ function getMemberAvatarForName(name: string): string {
 function resolveMemberFromUrl(baseState: AppState, urlName: string, urlJoinCode?: string | null): AppState {
   const cleanName = urlName.trim();
   const slugId = "user_" + cleanName.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "") || "user_member";
-  const code = (urlJoinCode?.trim() || baseState.coachInvite?.code || "HEAVEN-POOJA-2026").toUpperCase();
+  const code = (urlJoinCode?.trim() || baseState.coachInvite?.code || "SAATHI-ASHA-2026").toUpperCase();
 
   const existingUserIndex = baseState.users.findIndex(
     (u) => u.id === slugId || u.name.toLowerCase() === cleanName.toLowerCase()
@@ -136,7 +136,7 @@ function resolveMemberFromUrl(baseState: AppState, urlName: string, urlJoinCode?
       longestStreak: 0,
       isSeedAccount: false,
       invitedByCode: code,
-      bio: "Mindfulness practitioner in Coach Pooja's circle",
+      bio: "Mindfulness practitioner in Coach Asha's circle",
       location: "India",
     };
     updatedUsers.push(newMember);
@@ -169,23 +169,46 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     let baseState: AppState = initial;
 
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem("heaven_app_state_v1");
       if (saved) {
         const parsed = JSON.parse(saved);
+        const coachInitial = initial.users.find(x => x.id === "user_coach_pooja" || x.role === "coach") || initial.users[0];
+        
         baseState = {
           ...initial,
           ...parsed,
           currentUserId: (parsed.currentUserId && parsed.currentUserId !== "user_ananya_s") ? parsed.currentUserId : "user_coach_pooja",
           users: (parsed.users || initial.users).map((u: User) => {
             if (u.id === "user_coach_pooja" || u.role === "coach") {
-              if (!u.photo || u.photo.includes("images.unsplash.com/photo-1573496359142-b8d87734a5a2")) {
-                return { ...u, photo: initial.users.find(x => x.id === "user_coach_pooja")?.photo || u.photo };
-              }
+              return {
+                ...u,
+                name: (u.name === "Pooja V." || u.name === "Pooja") ? "Asha V." : (u.name || "Asha V."),
+                email: (u.email === "pooja@heavencommunity.in" || !u.email) ? "asha@saathicommunity.in" : u.email,
+                photo: (!u.photo || u.photo.includes("images.unsplash.com/photo-1573496359142-b8d87734a5a2")) ? coachInitial.photo : u.photo,
+              };
+            }
+            if (u.bio && (u.bio.includes("Pooja") || u.bio.includes("HEAVEN"))) {
+              return {
+                ...u,
+                bio: u.bio.replace(/Pooja/g, "Asha").replace(/HEAVEN/g, "Saathi"),
+              };
             }
             return u;
           }),
-          comments: parsed.comments && parsed.comments.length > 0 ? parsed.comments : initial.comments,
-          coachInvite: parsed.coachInvite || initial.coachInvite,
+          comments: (parsed.comments && parsed.comments.length > 0 ? parsed.comments : initial.comments).map((c: any) => {
+            if (c.userName === "Pooja V." || c.userName === "Pooja") {
+              return { ...c, userName: "Asha V." };
+            }
+            return c;
+          }),
+          coachInvite: {
+            ...initial.coachInvite,
+            ...(parsed.coachInvite || {}),
+            code: (!parsed.coachInvite?.code || parsed.coachInvite?.code === "HEAVEN-POOJA-2026") ? "SAATHI-ASHA-2026" : parsed.coachInvite.code,
+            description: (parsed.coachInvite?.description?.includes("Pooja") || parsed.coachInvite?.description?.includes("HEAVEN") || !parsed.coachInvite?.description) 
+              ? "Official Coach Asha V. Private Practice Circle on Saathi" 
+              : parsed.coachInvite.description,
+          },
         };
       }
     } catch (e) {
@@ -216,7 +239,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setState((prev) => resolveMemberFromUrl(prev, urlName, urlCode));
         setCoachImpersonatorId(null);
       } else if (urlCode !== null) {
-        const clean = (urlCode.trim() || "HEAVEN-POOJA-2026").toUpperCase();
+        const clean = (urlCode.trim() || "SAATHI-ASHA-2026").toUpperCase();
         setState((prev) => ({
           ...prev,
           gateAccessUnlocked: true,
@@ -748,9 +771,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const unlockAccessGate = useCallback(
     (code: string, memberName?: string) => {
       const cleanCode = code.trim().toUpperCase();
-      const currentCode = (state.coachInvite?.code || "HEAVEN-POOJA-2026").toUpperCase();
+      const currentCode = (state.coachInvite?.code || "SAATHI-ASHA-2026").toUpperCase();
 
-      if (cleanCode === currentCode || cleanCode.startsWith("HEAVEN") || cleanCode === "POOJA" || cleanCode === "POOJA2026") {
+      if (
+        cleanCode === currentCode ||
+        cleanCode.startsWith("SAATHI") ||
+        cleanCode.startsWith("HEAVEN") ||
+        cleanCode === "ASHA" ||
+        cleanCode === "ASHA2026" ||
+        cleanCode === "POOJA" ||
+        cleanCode === "POOJA2026"
+      ) {
         setState((prev) => {
           let next = { ...prev };
           if (memberName && memberName.trim().length >= 2) {
@@ -770,9 +801,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
             },
           };
         });
-        return { success: true, message: `Access unlocked! Welcome to Coach Pooja's private circle.` };
+        return { success: true, message: `Access unlocked! Welcome to Coach Asha's private circle.` };
       }
-      return { success: false, message: "Invalid invite code. Please enter the invite code provided by Coach Pooja." };
+      return { success: false, message: "Invalid invite code. Please enter the invite code provided by Coach Asha." };
     },
     [state.coachInvite]
   );

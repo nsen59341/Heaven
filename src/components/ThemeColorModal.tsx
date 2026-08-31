@@ -36,7 +36,7 @@ export const ThemeColorModal: React.FC<ThemeColorModalProps> = ({ isOpen, onClos
                 Appearance & Theme
               </h3>
               <p className="text-xs text-[var(--muted)] mt-0.5">
-                Personalize HEAVEN with your preferred natural ambiance
+                Personalize Saathi with your preferred natural ambiance
               </p>
             </div>
           </div>

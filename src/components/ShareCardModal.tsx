@@ -80,7 +80,7 @@ export const ShareCardModal: React.FC<ShareCardModalProps> = ({
     ctx.fillStyle = "#E8956B";
     ctx.font = "600 34px Figtree, sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("HEAVEN COMMUNITY · DAILY CHECK-IN", width / 2, 220);
+    ctx.fillText("SAATHI COMMUNITY · DAILY CHECK-IN", width / 2, 220);
 
     // Challenge & Day
     ctx.fillStyle = "#B8ACA0";
@@ -131,27 +131,27 @@ export const ShareCardModal: React.FC<ShareCardModalProps> = ({
     // Footer
     ctx.fillStyle = "#8F8475";
     ctx.font = "400 34px Figtree, sans-serif";
-    ctx.fillText("One life coach · 60 seconds a day · heavencommunity.in", width / 2, height - 160);
+    ctx.fillText("One life coach · 60 seconds a day · saathicommunity.in", width / 2, height - 160);
 
     // App logo small
     ctx.fillStyle = "#4D8B63";
     ctx.font = "italic 700 48px Newsreader, serif";
-    ctx.fillText("HEAVEN", width / 2, height - 100);
+    ctx.fillText("SAATHI", width / 2, height - 100);
 
     // Download trigger
     const link = document.createElement("a");
-    link.download = `HEAVEN-${firstName}-Day${dayNumber}-Streak${streak}.png`;
+    link.download = `Saathi-${firstName}-Day${dayNumber}-Streak${streak}.png`;
     link.href = canvas.toDataURL("image/png");
     link.click();
     setIsGenerating(false);
   };
 
   const handleShare = async () => {
-    const text = `Day ${dayNumber} completed in HEAVEN! ${streak} days unbroken streak with coach Pooja. 🌞`;
+    const text = `Day ${dayNumber} completed in Saathi! ${streak} days unbroken streak with coach Asha. 🌞`;
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "My HEAVEN Daily Check-in",
+          title: "My Saathi Daily Check-in",
           text,
           url: window.location.href,
         });
@@ -210,7 +210,7 @@ export const ShareCardModal: React.FC<ShareCardModalProps> = ({
 
           <div className="relative z-10 space-y-4">
             <div className="text-[11px] font-semibold tracking-widest text-[#E8956B] uppercase">
-              HEAVEN · 60s Micro-Pause
+              SAATHI · 60s Micro-Pause
             </div>
 
             <div>
@@ -249,9 +249,9 @@ export const ShareCardModal: React.FC<ShareCardModalProps> = ({
 
             <div className="pt-2 text-[10px] text-[#8F8475] flex items-center justify-between border-t border-white/10">
               <span className="font-serif italic text-sm text-[#6EAB84] font-bold">
-                HEAVEN
+                SAATHI
               </span>
-              <span>with Pooja V.</span>
+              <span>with Asha V.</span>
             </div>
           </div>
         </div>

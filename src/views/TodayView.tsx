@@ -188,7 +188,7 @@ export const TodayView: React.FC<TodayViewProps> = ({
               {todayCheckIn.seenByCoach && (
                 <div className="pt-2 border-t border-[var(--border)] text-xs text-[var(--accent)] flex items-center gap-1.5 font-semibold">
                   <ShieldCheck className="w-4 h-4" />
-                  <span>Pooja read this reflection</span>
+                  <span>Asha read this reflection</span>
                 </div>
               )}
             </div>
@@ -244,7 +244,7 @@ export const TodayView: React.FC<TodayViewProps> = ({
             <strong className="font-bold text-[var(--text)]">{checkedInTodayCount} members</strong> checked in today
           </p>
         </div>
-        <p className="text-[11px] text-[var(--subtle)]">© 2026 HEAVEN Collective</p>
+        <p className="text-[11px] text-[var(--subtle)]">© 2026 Saathi Collective</p>
       </div>
     </div>
   );

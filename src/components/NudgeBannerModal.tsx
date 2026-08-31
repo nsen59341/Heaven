@@ -33,7 +33,7 @@ export const NudgeBannerModal: React.FC<NudgeBannerModalProps> = ({
         <div className="flex items-center gap-2.5 text-[var(--accent)] mb-3">
           <Sparkles className="w-5 h-5" />
           <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
-            A Note from Pooja
+            A Note from Asha
           </span>
         </div>
 

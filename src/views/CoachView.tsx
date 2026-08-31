@@ -34,7 +34,7 @@ import {
 import { useApp } from "../context/AppContext";
 import { MOOD_SCALE, Challenge, ChallengeDay } from "../types";
 import { getLocalDateString } from "../utils/helpers";
-import poojaAvatar from "../assets/images/pooja_avatar.jpg";
+import ashaAvatar from "../assets/images/asha_avatar.jpg";
 import { CoachInviteModal } from "../components/CoachInviteModal";
 import { EditPersonaModal } from "../components/EditPersonaModal";
 import { MemberReviewModal } from "../components/MemberReviewModal";
@@ -61,8 +61,9 @@ export const CoachView: React.FC = () => {
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
 
   const coachUser = state.users.find((u) => u.role === "coach" || u.id === "user_coach_pooja");
-  const coachPhoto = coachUser?.photo || poojaAvatar;
-  const coachName = coachUser?.name || "Pooja V.";
+  const coachPhoto = coachUser?.photo || ashaAvatar;
+  const coachName = coachUser?.name || "Asha V.";
+  const coachFirstName = coachName.split(" ")[0];
 
   // Question answering state
   const [answeringQuestionId, setAnsweringQuestionId] = useState<string | null>(null);
@@ -577,7 +578,7 @@ export const CoachView: React.FC = () => {
                 Today&apos;s Reflections ({checkedInTodayCount})
               </h3>
               <p className="text-xs text-[var(--muted)]">
-                Mark as seen so members receive confirmation that Pooja read their note.
+                Mark as seen so members receive confirmation that {coachFirstName} read their note.
               </p>
             </div>
             <Calendar className="w-4 h-4 text-[var(--accent)]" />
@@ -703,7 +704,7 @@ export const CoachView: React.FC = () => {
                 {q.coachAnswer ? (
                   <div className="p-3.5 rounded-xl bg-[var(--surface)] border border-[var(--accent)] text-xs space-y-1">
                     <div className="font-semibold text-[var(--accent)] flex items-center gap-1">
-                      <Check className="w-3.5 h-3.5" /> Pooja&apos;s Answer:
+                      <Check className="w-3.5 h-3.5" /> {coachFirstName}&apos;s Answer:
                     </div>
                     <p className="text-[var(--text)] leading-relaxed">{q.coachAnswer}</p>
                   </div>

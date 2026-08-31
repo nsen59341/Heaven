@@ -45,7 +45,7 @@ export const CoachImpersonationBanner: React.FC<CoachImpersonationBannerProps> =
           id="return-to-coach-btn"
         >
           <ArrowLeft className="w-3 h-3" />
-          <span>Return to Coach Pooja</span>
+          <span>Return to Coach Asha</span>
         </button>
       </div>
     </div>

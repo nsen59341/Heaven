@@ -11,10 +11,10 @@ interface CoachInviteModalProps {
 export const CoachInviteModal: React.FC<CoachInviteModalProps> = ({ isOpen, onClose }) => {
   const { state } = useApp();
   const invite = state.coachInvite || {
-    code: "HEAVEN-POOJA-2026",
+    code: "SAATHI-ASHA-2026",
     coachId: "user_coach_pooja",
     createdAt: new Date().toISOString(),
-    description: "Official Coach Pooja V. Private Practice Circle on HEAVEN",
+    description: "Official Coach Asha V. Private Practice Circle on Saathi",
     active: true,
     redeemedCount: 14,
   };
@@ -33,7 +33,7 @@ export const CoachInviteModal: React.FC<CoachInviteModalProps> = ({ isOpen, onCl
     ? `${window.location.origin}/?join=${encodeURIComponent(invite.code)}&name=${encodeURIComponent(trimmedName)}`
     : "";
 
-  const fullShareText = `Hi ${trimmedName || "there"},\n\nI would love to invite you to join my private daily mindfulness and micro-pauses circle on HEAVEN.\n\n✨ Open your personal space here: ${shareableJoinUrl}\n\nLooking forward to practicing together with you! — Coach Pooja`;
+  const fullShareText = `Hi ${trimmedName || "there"},\n\nI would love to invite you to join my private daily mindfulness and micro-pauses circle on Saathi.\n\n✨ Open your personal space here: ${shareableJoinUrl}\n\nLooking forward to practicing together with you! — Coach Asha`;
 
   const handleCopyLink = () => {
     if (!isNameValid) return;
@@ -54,7 +54,7 @@ export const CoachInviteModal: React.FC<CoachInviteModalProps> = ({ isOpen, onCl
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `Join Coach Pooja's Circle on HEAVEN`,
+          title: `Join Coach Asha's Circle on Saathi`,
           text: fullShareText,
           url: shareableJoinUrl,
         });
@@ -217,7 +217,7 @@ export const CoachInviteModal: React.FC<CoachInviteModalProps> = ({ isOpen, onCl
                   <div className="text-xs font-bold text-stone-900 dark:text-stone-100">
                     {invite.redeemedCount || 14} Members Joined
                   </div>
-                  <div className="text-[11px] text-stone-500">Active in Coach Pooja&apos;s circle</div>
+                  <div className="text-[11px] text-stone-500">Active in Coach Asha&apos;s circle</div>
                 </div>
               </div>
 

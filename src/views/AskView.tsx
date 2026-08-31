@@ -11,13 +11,13 @@ import {
 } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import { ChatMessage } from "../types";
-import poojaAvatar from "../assets/images/pooja_avatar.jpg";
+import ashaAvatar from "../assets/images/asha_avatar.jpg";
 
 export const AskView: React.FC = () => {
   const { currentUser, state, sendChatMessage } = useApp();
   const coachUser = state.users.find((u) => u.role === "coach" || u.id === "user_coach_pooja");
-  const coachPhoto = coachUser?.photo || poojaAvatar;
-  const coachName = coachUser?.name || "Pooja V.";
+  const coachPhoto = coachUser?.photo || ashaAvatar;
+  const coachName = coachUser?.name || "Asha V.";
   const coachFirstName = coachName.split(" ")[0];
 
   const [inputText, setInputText] = useState("");
@@ -263,7 +263,7 @@ export const AskView: React.FC = () => {
           <div className="flex gap-3 justify-start items-center">
             <img
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80"
-              alt="Pooja"
+              alt="Asha"
               className="w-8 h-8 rounded-full object-cover shrink-0 border border-[var(--border)]"
               referrerPolicy="no-referrer"
             />
@@ -298,7 +298,7 @@ export const AskView: React.FC = () => {
             type="text"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="Type your question for Pooja..."
+            placeholder={`Type your question for ${coachFirstName}...`}
             className="flex-1 p-3.5 rounded-xl bg-[var(--subtle-surface)] border border-[var(--border)] text-[var(--text)] placeholder-[var(--subtle)] text-[15px] focus:border-[var(--accent)]"
           />
 

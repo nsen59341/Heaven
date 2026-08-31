@@ -47,7 +47,7 @@ export const InactivityModal: React.FC<InactivityModalProps> = ({
               </div>
               <div>
                 <span className="text-xs font-semibold tracking-wider text-accent uppercase">
-                  HEAVEN Check-In
+                  Saathi Check-In
                 </span>
                 <h3 className="text-xl font-bold text-stone-900 dark:text-stone-100">
                   Welcome back, {firstName}
@@ -64,7 +64,7 @@ export const InactivityModal: React.FC<InactivityModalProps> = ({
                 We noticed it's been {daysInactive > 0 ? `${daysInactive} days` : "a while"} since your last check-in.
               </p>
               <p className="text-stone-600 dark:text-stone-400">
-                Life gets loud and full — and in HEAVEN, taking time away is never something you have to make up for or feel guilty about. Day one is always right now.
+                Life gets loud and full — and in Saathi, taking time away is never something you have to make up for or feel guilty about. Day one is always right now.
               </p>
             </div>
 
@@ -115,7 +115,7 @@ export const InactivityModal: React.FC<InactivityModalProps> = ({
             <div className="flex items-start gap-3 p-3 rounded-xl bg-accent-tint/60 border border-accent/20">
               <Compass className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
               <p className="text-xs text-stone-700 dark:text-stone-300 italic">
-                "There is no backlog to clear. Just one unhurried breath in this present moment." — Coach Pooja
+                "There is no backlog to clear. Just one unhurried breath in this present moment." — Coach Asha
               </p>
             </div>
           </div>

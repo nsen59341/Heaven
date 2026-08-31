@@ -109,7 +109,7 @@ export const MeView: React.FC<MeViewProps> = ({
     } catch (err) {
       console.error(err);
       setWeeklyLetter(
-        `Dear ${currentUser.name.split(" ")[0]},\n\nLooking back over your reflections this week, there is a clear and steady rhythm emerging in how you meet each day. You noted discovering the quiet in between tasks and giving yourself space to pause.\n\nNotice the shift: from rushing straight through the morning tension to taking sixty seconds to notice where you are. That subtle pause is where steady confidence is born.\n\nKeep grounding yourself in these micro-moments.\n\nWarmly,\nPooja`
+        `Dear ${currentUser.name.split(" ")[0]},\n\nLooking back over your reflections this week, there is a clear and steady rhythm emerging in how you meet each day. You noted discovering the quiet in between tasks and giving yourself space to pause.\n\nNotice the shift: from rushing straight through the morning tension to taking sixty seconds to notice where you are. That subtle pause is where steady confidence is born.\n\nKeep grounding yourself in these micro-moments.\n\nWarmly,\nAsha`
       );
     } finally {
       setIsGeneratingLetter(false);
@@ -140,7 +140,7 @@ export const MeView: React.FC<MeViewProps> = ({
                 )}
               </div>
               <div className="text-xs text-[var(--muted)] mt-0.5">
-                HEAVEN Community · Practicing since {currentUser.joinDate}
+                Saathi Community · Practicing since {currentUser.joinDate}
               </div>
             </div>
           </div>
@@ -421,7 +421,7 @@ export const MeView: React.FC<MeViewProps> = ({
             A Letter About Your Week
           </h3>
           <p className="text-xs text-[var(--muted)] max-w-sm leading-relaxed">
-            Pooja reviews your reflections from the past 7 days, quotes your discoveries, and notes the quiet shifts.
+            Asha reviews your reflections from the past 7 days, quotes your discoveries, and notes the quiet shifts.
           </p>
         </div>
 
@@ -547,7 +547,7 @@ export const MeView: React.FC<MeViewProps> = ({
               <div className="py-12 text-center space-y-3">
                 <div className="w-8 h-8 rounded-full border-2 border-[var(--accent)] border-t-transparent animate-spin mx-auto" />
                 <p className="text-sm text-[var(--muted)]">
-                  Pooja is reviewing your reflections and writing your letter...
+                  Asha is reviewing your reflections and writing your letter...
                 </p>
               </div>
             ) : (

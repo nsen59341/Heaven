@@ -309,7 +309,7 @@ export const ResetModal: React.FC<ResetModalProps> = ({
       <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)] max-w-4xl w-full mx-auto">
         <div className="flex items-center gap-2.5">
           <span className="font-serif italic font-bold text-xl text-[var(--accent)]">
-            HEAVEN
+            Saathi
           </span>
           <span className="text-xs text-[var(--muted)] border-l border-[var(--border)] pl-2.5">
             60-Second Reset
@@ -381,7 +381,7 @@ export const ResetModal: React.FC<ResetModalProps> = ({
                   3 min · Personalized by situation
                 </div>
                 <p className="text-sm text-[var(--subtle)] mt-3 leading-relaxed">
-                  Type what is happening; Pooja’s AI creates an unhurried 3-minute guided audio pause.
+                  Type what is happening; Asha’s AI creates an unhurried 3-minute guided audio pause.
                 </p>
               </button>
 
@@ -419,7 +419,7 @@ export const ResetModal: React.FC<ResetModalProps> = ({
                   Immediate 24x7 support
                 </div>
                 <p className="text-sm text-[var(--subtle)] mt-3 leading-relaxed">
-                  Free Government of India Tele-MANAS helpline and private message to Pooja.
+                  Free Government of India Tele-MANAS helpline and private message to Asha.
                 </p>
               </button>
             </div>
@@ -868,10 +868,10 @@ export const ResetModal: React.FC<ResetModalProps> = ({
                   </div>
                   <div>
                     <h4 className="font-medium text-base text-[var(--text)]">
-                      Message Coach Pooja
+                      Message Coach Asha
                     </h4>
                     <p className="text-xs text-[var(--muted)] mt-0.5">
-                      Share what you are going through directly in Pooja’s private question queue.
+                      Share what you are going through directly in Asha’s private question queue.
                     </p>
                     <button
                       onClick={() => {
@@ -892,7 +892,7 @@ export const ResetModal: React.FC<ResetModalProps> = ({
                 onClick={() => onClose()}
                 className="text-xs text-[var(--subtle)] hover:text-[var(--text)] underline"
               >
-                Close and return to HEAVEN
+                Close and return to Saathi
               </button>
             </div>
           </div>
